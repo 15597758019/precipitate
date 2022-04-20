@@ -9,7 +9,7 @@ typedef struct BinaryTreeNode
 	BTDataType data;
 }BTNode;
 
-//ǰ��
+//前序
 void PreOrder(BTNode* root)
 {
 	if(root == NULL)
@@ -17,11 +17,33 @@ void PreOrder(BTNode* root)
 		printf("NULL ");
 		return;
 	}
-
 	printf("%c ",root->data);
 	PreOrder(root->left);
 	PreOrder(root->right);
-
+}
+//中序
+void InfixOrder (BTNode* root)
+{
+	if(root == NULL)
+	{
+		printf("NULL ");
+		return;
+	}
+	PreOrder(root->left);
+	printf("%c ",root->data);
+	PreOrder(root->right);
+}
+//后序
+void PostOrder(BTNode* root)
+{
+	if(root == NULL)
+	{
+		printf("NULL ");
+		return;
+	}
+	PreOrder(root->left);
+	PreOrder(root->right);
+	printf("%c ",root->data);
 }
 int main()
 {
