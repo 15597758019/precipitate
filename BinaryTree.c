@@ -17,6 +17,7 @@ void PreOrder(BTNode* root)
 		printf("NULL ");
 		return;
 	}
+
 	printf("%c ",root->data);
 	PreOrder(root->left);
 	PreOrder(root->right);
@@ -29,9 +30,9 @@ void InfixOrder (BTNode* root)
 		printf("NULL ");
 		return;
 	}
-	PreOrder(root->left);
+	InfixOrder(root->left);
 	printf("%c ",root->data);
-	PreOrder(root->right);
+	InfixOrder(root->right);
 }
 //后序
 void PostOrder(BTNode* root)
@@ -41,8 +42,8 @@ void PostOrder(BTNode* root)
 		printf("NULL ");
 		return;
 	}
-	PreOrder(root->left);
-	PreOrder(root->right);
+	PostOrder(root->left);
+	PostOrder(root->right);
 	printf("%c ",root->data);
 }
 int main()
@@ -78,6 +79,9 @@ int main()
 	B->right = E;
 	PreOrder(A);
 	printf("\n");
-	
+	InfixOrder(A);
+	printf("\n");
+	PostOrder(A);
+	printf("\n");
 	return 0;
 }
